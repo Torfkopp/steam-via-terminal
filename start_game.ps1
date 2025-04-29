@@ -1,3 +1,5 @@
+# Return table of found Steam games, or starts the game when only one is found
+
 param(
     [Parameter(ValueFromRemainingArguments = $true)]
     [string[]]$Parameter
@@ -37,7 +39,7 @@ Where-Object { $_.Name -match $SearchName })
 if ($results.Count -eq 1) {
     $appid = $results[0].AppID
     Write-Host "Launching $($results[0].Name) (AppID: $appid)..." -ForegroundColor Green
-    # Start-Process "steam://rungameid/$appid"
+    Start-Process "steam://rungameid/$appid"
 }
 elseif ($results.Count -gt 1) {
     $results | Sort-Object Name | Format-Table -Property AppID, Name, Path -AutoSize

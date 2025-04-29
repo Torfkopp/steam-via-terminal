@@ -1,3 +1,5 @@
+# Returns a string of all found Steam Games
+
 $paths = @(
     'C:\Steam\steamapps',
     'D:\SteamLibrary\steamapps'

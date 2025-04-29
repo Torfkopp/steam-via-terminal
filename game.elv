@@ -1,7 +1,9 @@
-var rc_path = C:\Users\{Your Name}\AppData\Roaming\elvish
+# Elvish Wrapper for the powershell scripts
 
-fn game { |x| powershell $rc_path\steam_ids.ps1 $x }
+var rc_path = {Your Path}
+
+fn game { |x| powershell $rc_path\start_game.ps1 $x }
 
 set edit:completion:arg-completer[game:game] = {|@args|
-    for x [(powershell $rc_path\steam_auto_complete.ps1)] { put $x }
+    for x [(powershell $rc_path\get_games.ps1)] { put $x }
 }
